@@ -288,3 +288,185 @@ class FontTextWidget extends StatelessWidget {
 ## Hasil yang saya dapatkan
 
 Aplikasi berhasil menampilkan empat jenis tulisan, yaitu Normal, Bold, Semi Bold, dan Italic. Semua tulisan disusun dari atas ke bawah menggunakan `Column`.
+
+
+# Belajar Dart pada Flutter - Hari 2-1
+
+## Topik
+
+**Text Spacing, Decoration, dan Shadow di Flutter**
+
+Hari ini saya belajar tentang cara mengatur jarak dan tampilan teks di Flutter. Saya mencoba beberapa properti yang ada di `TextStyle`, seperti `letterSpacing`, `wordSpacing`, `height`, `TextDecoration`, `backgroundColor`, dan `shadows`.
+
+Dari pembelajaran ini, saya mulai memahami bahwa tampilan teks tidak hanya bisa diatur ukuran dan ketebalannya, tetapi juga jarak, hiasan, dan efek bayangannya.
+
+## Contoh yang saya buat
+
+Saya membuat beberapa contoh teks menggunakan widget `Text` dan menyusunnya dengan `Column`.
+
+```dart
+class SpacingTextWidget extends StatelessWidget {
+  const SpacingTextWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Normal Text',
+          style: TextStyle(fontSize: 20),
+        ),
+        SizedBox(height: 20),
+        Text(
+          'Letter Spacing',
+          style: TextStyle(
+            fontSize: 20,
+            letterSpacing: 5,
+          ),
+        ),
+      ],
+    );
+  }
+}
+```
+
+Saya menggunakan `Column` supaya teks ditampilkan dari atas ke bawah, sedangkan `SizedBox` digunakan untuk memberikan jarak antar teks.
+
+## Yang saya pahami
+
+### 1. Letter Spacing
+
+```dart
+Text(
+  'Letter Spacing',
+  style: TextStyle(
+    fontSize: 20,
+    letterSpacing: 5,
+  ),
+)
+```
+
+`letterSpacing` digunakan untuk mengatur jarak antarhuruf. Di contoh ini saya menggunakan nilai `5`, sehingga jarak antarhuruf menjadi lebih lebar dari biasanya.
+
+### 2. Word Spacing
+
+```dart
+Text(
+  'Word Spacing Example',
+  style: TextStyle(
+    fontSize: 20,
+    wordSpacing: 10,
+  ),
+)
+```
+
+`wordSpacing` digunakan untuk mengatur jarak antarkata. Saya mencoba nilai `10` supaya jarak antara kata satu dan lainnya menjadi lebih lebar.
+
+Jadi, perbedaan `letterSpacing` dan `wordSpacing` adalah yang satu mengatur jarak antarhuruf, sedangkan yang satunya mengatur jarak antarkata.
+
+### 3. Height
+
+```dart
+Text(
+  'Line 1\nLine 2\nLine 3',
+  style: TextStyle(
+    fontSize: 20,
+    height: 2,
+  ),
+)
+```
+
+`height` digunakan untuk mengatur tinggi baris teks. Di contoh ini saya menggunakan nilai `2` supaya jarak antarbaris menjadi lebih renggang.
+
+Saya juga belajar bahwa `\n` digunakan untuk membuat baris baru, sehingga tulisan ditampilkan menjadi tiga baris.
+
+### 4. SizedBox
+
+```dart
+SizedBox(height: 20)
+```
+
+`SizedBox` digunakan untuk memberikan jarak vertikal antarwidget. Semakin besar nilai `height`, semakin jauh jarak antara widget yang satu dan berikutnya.
+
+Saya mulai memahami bahwa `SizedBox` berbeda dengan `letterSpacing`, `wordSpacing`, dan `height`, karena `SizedBox` mengatur jarak antarwidget, bukan jarak di dalam teks.
+
+### 5. TextDecoration.underline
+
+```dart
+Text(
+  'Underline',
+  style: TextStyle(
+    fontSize: 20,
+    decoration: TextDecoration.underline,
+  ),
+)
+```
+
+`TextDecoration.underline` digunakan untuk memberikan garis bawah pada teks. Contohnya bisa digunakan untuk menandai tulisan tertentu atau membuat teks terlihat seperti tautan.
+
+### 6. TextDecoration.lineThrough
+
+```dart
+Text(
+  'Line Through',
+  style: TextStyle(
+    fontSize: 20,
+    decoration: TextDecoration.lineThrough,
+  ),
+)
+```
+
+`TextDecoration.lineThrough` digunakan untuk memberikan garis yang melewati bagian tengah teks.
+
+Saya bisa menggunakan efek ini untuk menampilkan harga lama yang sudah dicoret, misalnya pada tampilan produk yang sedang diskon.
+
+### 7. backgroundColor
+
+```dart
+Text(
+  'Background',
+  style: TextStyle(
+    fontSize: 20,
+    backgroundColor: Colors.yellow,
+  ),
+)
+```
+
+`backgroundColor` digunakan untuk memberikan warna pada bagian belakang teks. Di contoh ini saya menggunakan `Colors.yellow`, sehingga tulisan memiliki background berwarna kuning.
+
+### 8. Text Shadow
+
+```dart
+Text(
+  'Text Shadow',
+  style: TextStyle(
+    fontSize: 30,
+    shadows: [
+      Shadow(
+        offset: Offset(3, 3),
+        blurRadius: 5,
+      ),
+    ],
+  ),
+)
+```
+
+`shadows` digunakan untuk memberikan efek bayangan pada teks.
+
+- `offset: Offset(3, 3)` digunakan untuk mengatur posisi bayangan ke arah horizontal dan vertikal.
+- `blurRadius: 5` digunakan untuk mengatur tingkat keburaman bayangan.
+
+Dengan efek ini, teks bisa terlihat lebih menonjol dibandingkan teks biasa.
+
+## Hasil yang saya dapatkan
+
+Dari latihan ini, saya berhasil mencoba beberapa pengaturan teks, yaitu:
+
+- Mengatur jarak antarhuruf menggunakan `letterSpacing`.
+- Mengatur jarak antarkata menggunakan `wordSpacing`.
+- Mengatur tinggi baris menggunakan `height`.
+- Memberikan jarak antarwidget menggunakan `SizedBox`.
+- Memberikan garis bawah dan garis coret menggunakan `TextDecoration`.
+- Memberikan warna background menggunakan `backgroundColor`.
+- Menambahkan bayangan pada teks menggunakan `shadows`.
